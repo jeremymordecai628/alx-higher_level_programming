@@ -1,1 +1,1 @@
-i am here to solve inherintance
+ i will solve this inheritances 
