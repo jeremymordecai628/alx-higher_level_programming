@@ -25,6 +25,10 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        if not isinstance(value, int):
+            raise ValueError("Width must be an integer")
+        if value< 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -33,6 +37,10 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        if not isinstance(value, int):
+            raise ValueError("Height must be an integer")
+        if value< 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -41,6 +49,10 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
+        if not isinstance(value, int):
+            raise ValueError("X must be an integer")
+        if value< 0:
+            raise ValueError("x must be > 0")
         self.__x = value
 
     @property
@@ -49,14 +61,31 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
+        if not isinstance(value, int):
+            raise ValueError("Y must be an integer")
+        if value< 0:
+            raise ValueError("y  must be > 0")
         self.__y = value
-
 if __name__ == "__main__":
-    r1 = Rectangle(10, 2)
-    print(r1.id)
 
-    r2 = Rectangle(2, 10)
-    print(r2.id)
+    try:
+        Rectangle(10, "2")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
-    r3 = Rectangle(10, 2, 0, 0, 12)
+    try:
+        r = Rectangle(10, 2)
+        r.width = -10
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
+    try:
+        r = Rectangle(10, 2)
+        r.x = {}
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        Rectangle(10, 2, 3, -1)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
