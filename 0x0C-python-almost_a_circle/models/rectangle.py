@@ -66,26 +66,37 @@ class Rectangle(Base):
         if value< 0:
             raise ValueError("y  must be > 0")
         self.__y = value
+
+        def area(self):
+            """
+            """
+            area =self.width * self.height
+
+            return area
+        def display(self):
+            """
+            prints size of rectangle using #
+            """
+            for _ in range(self.height):
+                print("#" * self.width)
+            
+
+        def __str__(self):
+           
+           """
+           Return the print() and str() representation of the Rectangle.
+           """
+           return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x,
+                                                       self.y,
+                                                       self.width,
+                                                       self.height)
+
+
 if __name__ == "__main__":
 
-    try:
-        Rectangle(10, "2")
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
+    r1 = Rectangle(4, 6, 2, 1, 12)
+    print(r1)
 
-    try:
-        r = Rectangle(10, 2)
-        r.width = -10
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r = Rectangle(10, 2)
-        r.x = {}
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        Rectangle(10, 2, 3, -1)
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
+    r2 = Rectangle(5, 5, 1)
+    print(r2)
