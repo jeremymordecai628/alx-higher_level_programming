@@ -1,6 +1,3 @@
 #!/bin/bash
-# Sends a request to a URL and displays the size of the body of the response
-
-URL=$1
-SIZE=$(curl -sI $URL | grep -i Content-Length | awk '{print $2}')
-echo $SIZE
+# Sends a request to that URL, and displays the size of the body of the response
+curl -s "${1}" | wc -c

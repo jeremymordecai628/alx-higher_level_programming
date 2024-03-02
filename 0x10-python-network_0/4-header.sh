@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-# Displays listening ports. Includes listening sockets as well
-# + as the PID and name of the program to which each socket belongs.
-
-netstat -l --program
+#!/bin/bash
+# Sends a GET request to the URL, and displays the body of the response
+curl -sH "X-HolbertonSchool-User-Id: 98" "${1}"
